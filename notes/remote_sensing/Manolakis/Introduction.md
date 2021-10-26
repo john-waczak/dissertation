@@ -41,5 +41,52 @@ There are three processes that occur when EM radiation meets and interface:
 - **Emissivity Spectrum**: The ratio of radiant emittance at a given temperature to the radiant emittance of a black body at the same temperature. 
 
 ## 1.3 Hyperspectal Imaging Sensors
+- **Hyperspectral Sensors** aka imaging spectrometers
+  - scanning mechanism
+  - imaging system
+  - spectrometer
+- 3 types of resolution 
+1. spatial 
+2. spectral 
+3. radiant 
+4. (temporal?)
 
-### 
+### 1.3.1 Spectral-Spatial Data Collection and Organization 
+- Data collected into **Data Cube**
+  - 2 spatial dimensions, 1 spectral dimension
+  
+![Data Cube](./figures/datacube.png)
+![Pushbroom](./figures/pushbroom.png)
+
+- Different types of rigs: 
+  - Pushbroom scanner (ours) 
+  - Staring System 
+  - Fourier Transform Imaging Spectrometer (FTIS) 
+  
+### 1.3.2 Spatial Sampling 
+- ground resolution elements are mapped to picture elements (pixels) 
+- **IFOV**: Instantaneous Field of View
+- **Cross track dimension** the projection of the long axis of the slit (i.e. the axis of the pushbroom sensors)
+- **Along track dimension** the direction accumulated by traveling 
+- **Ground Sample Distance** physical size of projected pixel element 
+
+![viewing](./figures/scanningProcedure.png)
+
+### 1.3.3 Spectral Sampling 
+- Recovery of spectral info is *imperfect* due to finite sampling 
+- **Spectral Response Function** is the weighing function that describes the wavelengths that are transmitted to a particular spectral sample 
+
+### 1.3.4 Radiometric Sampling
+- detector transforms  radiant power to electrical signal 
+- electrical signal converted to numbe via analog-to-digital converter
+- photon detectors 
+
+### 1.3.5 Signal Consideratiosn 
+Strength of signal is determined by: 
+- *Terrain composition* $\to$ affects amount of radiant energy reflected/emitted from ground resolution element
+- *Range* Intensity drops off by inverse square law. Further you are away, the worse the signal
+- *Spectral Bandwidth* output signal of detector element is proportional to spectral bandwidth of the detector
+- *Instantaneous Field of View* Decreasing IFOV increases spatial resolution but weakens the signal
+- *Dwell Time* the time required to sweep the IFOV across the ground resolution element, i.e. the time-on-pixel. Longer dwell time $\to$ more accumulated photons $\to$ more signal. 
+
+### 1.4 Data Preprocessing 
